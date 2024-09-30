@@ -1,15 +1,19 @@
 {
-  "name": "tracking",
+  "name": "whatsapp-tracking-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Bot WhatsApp pour le tracking de colis",
+  "main": "bot.js",
   "scripts": {
+    "start": "node bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "whatsapp-web.js": "^1.26.0"
+    "whatsapp-web.js": "^1.19.4",
+    "mysql2": "^2.3.3",
+    "dotenv": "^16.0.3",
+    "qrcode-terminal": "^0.12.0"
   }
 }
