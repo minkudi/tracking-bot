@@ -37,7 +37,6 @@ async function getSecrets() {
 (async () => {
     const secrets = await getSecrets();
 
-    // Configuration de la base de données
     const dbConfig = {
         host: secrets.DB_HOST,
         user: secrets.DB_USER,
