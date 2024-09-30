@@ -13,7 +13,6 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-// Configuration AWS
 const secret_name = "my-bot-secrets";
 const client = new SecretsManagerClient({ region: "eu-north-1" });
 
