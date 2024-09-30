@@ -107,17 +107,21 @@ async function getSecrets() {
 
     // Gestion des messages entrants
     clientWhatsApp.on('message', async (message) => {
-        if (message.body.length === 4 && /^\d+$/.test(message.body)) {
-            const orderNumber = message.body;
-            const status = await checkOrderStatus(orderNumber);
-            message.reply(`Le statut de la commande ${orderNumber} est : ${status}`);
+        const orderNumber = message.body.trim(); 
+        if (orderNumber.length > 0 && /^[a-zA-Z0-9]+$/.test(orderNumber)) { 
+            const status = await checkOrderStatus(orderNumber); 
+            if (status === 'Commande non trouvée') {
+                message.reply(`Désolé, le numéro de commande ${orderNumber} n'a pas été trouvé.`); 
+            } else {
+                message.reply(`Le statut de la commande ${orderNumber} est : ${status}`); 
+            }
+        } else {
+            message.reply('Veuillez entrer un numéro de commande valide.'); 
         }
     });
 
-    // Initialisation du client WhatsApp
     clientWhatsApp.initialize();
 
-    // Démarrage du serveur Express
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`);
     });
