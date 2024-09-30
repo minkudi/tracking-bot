@@ -1,0 +1,5 @@
+# Ignorer le dossier des modules Node.js
+node_modules/
+
+# Ignorer les fichiers de configuration sensibles
+.env
